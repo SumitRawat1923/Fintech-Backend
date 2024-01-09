@@ -1,0 +1,14 @@
+GET http://localhost:3000/users
+
+####
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name":"Amit",
+    "phoneNumber":"9958529762",
+    "email":"sumitrawat4200000@gmail.com",
+    "role":"expert"
+}
+
