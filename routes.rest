@@ -12,3 +12,7 @@ Content-Type: application/json
     "role":"client"
 }
 
+####
+
+DELETE http://localhost:3000/users/659d9f0ad7679487df648707
+

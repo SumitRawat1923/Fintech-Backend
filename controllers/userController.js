@@ -3,7 +3,9 @@ const validator = require("email-validator");
 
 async function getUsers(req, res) {
   try {
-    const users = await User.find();
+    const { role } = req.query;
+    const query = role ? { role } : {};
+    const users = await User.find(query);
     res.status(200).send(users);
   } catch (error) {
     console.error("GET[users] error:", error.message);
@@ -36,7 +38,22 @@ async function createUser(req, res) {
   }
 }
 
+async function deleteUser(req, res) {
+  try {
+    const { id } = req.params;
+    const deletedUser = await User.findByIdAndDelete(id);
+    if (!deletedUser) {
+      return res.status(404).send({ message: "User not found." });
+    }
+    res.status(200).send(deletedUser);
+  } catch (error) {
+    console.log("DELETE[user] error: ", error.message);
+    res.status(500).send({ message: "Server side error." });
+  }
+}
+
 module.exports = {
   getUsers,
   createUser,
+  deleteUser,
 };
