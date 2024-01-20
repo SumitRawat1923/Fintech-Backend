@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const connectDB = require("./db");
+const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 const userRoutes = require("./routes/userRoutes");
 
@@ -11,6 +12,8 @@ async function startServer() {
     await connectDB();
 
     app.use(express.json());
+
+    app.use(cors());
 
     app.use((err, req, res, next) => {
       console.error(err.stack);
