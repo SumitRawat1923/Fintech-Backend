@@ -1,4 +1,4 @@
-GET http://localhost:3000/users
+GET http://localhost:3000/users?role=client
 
 ####
 
@@ -14,5 +14,5 @@ Content-Type: application/json
 
 ####
 
-DELETE http://localhost:3000/users/659d9f0ad7679487df648707
+DELETE http://localhost:3000/users/659ee1fcb4da7abbe3df9a89
 

@@ -20,13 +20,17 @@ async function startServer() {
       res.status(500).send("Something went wrong!");
     });
 
+    app.get("/",(req,res)=>{
+      res.send("😊😊😊Welcome😊😊😊")
+    })
+
     app.use("/users", userRoutes);
 
     app.listen(PORT, (err) => {
       if (err) {
         console.error(`Server failed to start : ${err}`);
       } else {
-        console.log(`Server is running oo PORT:${PORT}  `);
+        console.log(`Server is running on http://localhost:${PORT} `);
       }
     });
   } catch (error) {
