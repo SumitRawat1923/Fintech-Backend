@@ -1,2 +1,2 @@
-import server from "./index";
+import server from "../server";
 export default server;
